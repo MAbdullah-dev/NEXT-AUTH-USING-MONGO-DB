@@ -44,8 +44,8 @@ export const sendEmail = async ({ email, emailType, userId }: SendEmailParams) =
     // Use DOMAIN from .env (e.g. http://localhost:3000)
     const actionUrl =
       emailType === "VERIFY"
-        ? `${process.env.DOMAIN}/verify/${hashedToken}`
-        : `${process.env.DOMAIN}/reset-password/${hashedToken}`;
+        ? `${process.env.DOMAIN}/verify?token=${hashedToken}`
+        : `${process.env.DOMAIN}/reset-password?token=${hashedToken}`;
 
     // Email HTML content
     const html = `
